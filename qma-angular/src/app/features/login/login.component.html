@@ -1,0 +1,32 @@
+<section class="auth-page">
+  <div class="auth-visual">
+    <img src="image/logo.png" alt="Quantora logo" />
+    <h1>Welcome back to Quantora.</h1>
+    <p>Sign in to save your quantity measurement history and access your personalized records.</p>
+  </div>
+
+  <form class="auth-card" [formGroup]="loginForm" (ngSubmit)="submit()">
+    <p class="eyebrow">Login</p>
+    <h2>Access your account</h2>
+
+    <label>
+      Username
+      <input type="text" formControlName="username" placeholder="virat" />
+      <small *ngIf="username.touched && username.hasError('required')">Username is required.</small>
+      <small *ngIf="username.touched && username.hasError('minlength')">Use at least 3 characters.</small>
+    </label>
+
+    <label>
+      Password
+      <input type="password" formControlName="password" placeholder="Password" />
+      <small *ngIf="password.touched && password.hasError('required')">Password is required.</small>
+      <small *ngIf="password.touched && password.hasError('minlength')">Use at least 6 characters.</small>
+    </label>
+
+    <button type="submit" [disabled]="isSubmitting">
+      {{ isSubmitting ? 'Signing In...' : 'Sign In' }}
+    </button>
+
+    <p class="switch-link">New here? <a routerLink="/signup">Create account</a></p>
+  </form>
+</section>
