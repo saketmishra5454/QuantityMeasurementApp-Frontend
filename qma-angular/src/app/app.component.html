@@ -1,0 +1,22 @@
+<main class="app-shell">
+  <app-notification-center />
+
+  <nav class="topbar">
+    <a class="brand" routerLink="/converter" aria-label="Quantora home">
+      <span class="brand__mark">
+        <img src="image/logo.png" alt="" class="brand__logo" />
+      </span>
+      <span class="brand__text">{{ appName }}</span>
+    </a>
+
+    <div class="topbar__links" aria-label="Main navigation">
+      <a routerLink="/converter" routerLinkActive="topbar__link--active">Converter</a>
+      <a routerLink="/history" routerLinkActive="topbar__link--active">History</a>
+      <a *ngIf="!isLoggedIn" routerLink="/login" routerLinkActive="topbar__link--active">Login</a>
+      <a *ngIf="!isLoggedIn" class="topbar__button" routerLink="/signup" routerLinkActive="topbar__button--active">Sign Up</a>
+      <button *ngIf="isLoggedIn" type="button" class="topbar__button" (click)="logout()">Logout</button>
+    </div>
+  </nav>
+
+  <router-outlet />
+</main>

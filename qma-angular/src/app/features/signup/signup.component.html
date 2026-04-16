@@ -1,0 +1,46 @@
+<section class="auth-page">
+  <div class="auth-visual">
+    <img src="image/logo.png" alt="Quantora logo" />
+    <h1>Create your Quantora account.</h1>
+    <p>Save conversions, review history, and keep your measurements organized in one place.</p>
+  </div>
+
+  <form class="auth-card" [formGroup]="signupForm" (ngSubmit)="submit()">
+    <p class="eyebrow">Sign Up</p>
+    <h2>Start measuring smarter</h2>
+
+    <label>
+      Username
+      <input type="text" formControlName="username" placeholder="virat" />
+      <small *ngIf="username.touched && username.hasError('required')">Username is required.</small>
+      <small *ngIf="username.touched && username.hasError('minlength')">Use at least 3 characters.</small>
+    </label>
+
+    <label>
+      Email
+      <input type="email" formControlName="email" placeholder="abc@gmail.com" />
+      <small *ngIf="email.touched && email.hasError('required')">Email is required.</small>
+      <small *ngIf="email.touched && email.hasError('email')">Enter a valid email.</small>
+    </label>
+
+    <label>
+      Password
+      <input type="password" formControlName="password" placeholder="Password" />
+      <small *ngIf="password.touched && password.hasError('required')">Password is required.</small>
+      <small *ngIf="password.touched && password.hasError('minlength')">Use at least 6 characters.</small>
+    </label>
+
+    <label>
+      Phone Number
+      <input type="tel" formControlName="phoneNumber" placeholder="+91 1234567890" />
+      <small *ngIf="phoneNumber.touched && phoneNumber.hasError('required')">Phone number is required.</small>
+      <small *ngIf="phoneNumber.touched && phoneNumber.hasError('pattern')">Enter a valid phone number.</small>
+    </label>
+
+    <button type="submit" [disabled]="isSubmitting">
+      {{ isSubmitting ? 'Creating Account...' : 'Create Account' }}
+    </button>
+
+    <p class="switch-link">Already registered? <a routerLink="/login">Sign in</a></p>
+  </form>
+</section>
