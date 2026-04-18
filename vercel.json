@@ -1,0 +1,5 @@
+{
+  "installCommand": "cd qma-angular && npm install",
+  "buildCommand": "cd qma-angular && npm run build",
+  "outputDirectory": "qma-angular/dist/qma-angular/browser"
+}
